@@ -1,0 +1,23 @@
+/* .fundTableArea{
+    border: 2px solid black;
+    border-radius: 10px;
+} */
+
+.addFundsArea{
+    margin: auto;
+    text-align: center;
+    width: 38%;
+}
+
+.amntInput{
+    width: 55%;
+    margin: auto;
+}
+
+.fundsBtn{
+    margin:auto;
+    text-align: center;
+}
+h2{
+    font-family: 'Archivo', sans-serif;
+}

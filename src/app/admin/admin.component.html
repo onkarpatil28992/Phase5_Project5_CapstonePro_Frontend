@@ -1,0 +1,303 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark border border-warning">
+  <div class="container-fluid">
+    <ul class="navbar-brand text-bold" (click)="showReportBtn()" href="#">
+      <img
+        src="https://img.icons8.com/nolan/2x/fast-cart.png"
+        alt="logo"
+        width="40"
+        height="35"
+      />
+      <div>
+        <span class="fs-6 text-danger"><h5>THINK FRESH</h5></span>
+      </div>
+    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <button
+            class="btn btn-outline-danger"
+            type="button"
+            (click)="showReportBtn()"
+          >
+            Home
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="btn btn-outline-danger"
+            type="button"
+            (click)="showEditBtn()"
+          >
+            Edit Employees
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="btn btn-outline-danger"
+            type="button"
+            (click)="showProducts()"
+          >
+            Products
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="btn btn-outline-danger"
+            type="button"
+            (click)="showRequests()"
+          >
+            Requests
+          </button>
+        </li>
+      </ul>
+      <button class="btn btn-danger" type="button" (click)="logOut()">
+        Log Out
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="row align-items-center pt-5 bg-dark text-light" *ngIf="showReport">
+  <div class="col"></div>
+  <div class="col">
+    <h3 class="text-center text-info text-uppercase">All Purchases Made So Far</h3> <hr>
+    
+    <div class="container-md bg-gradient p-5 mb-5" id="wrap">
+      <h4 class="text-center text-info">Search with details</h4> <hr>
+      <form #custom="ngForm" (ngSubmit)="customize(custom.value)">
+        <div class="d-grid gap-2">
+          <button
+            type="button"
+            class="btn btn-info"
+            id="daily"
+            (click)="daily()"
+          >
+            Daily
+          </button>
+          <button
+            type="button"
+            class="btn btn-info"
+            id="weekly"
+            (click)="weekly()"
+          >
+            Weekly
+          </button>
+          <button
+            type="button"
+            class="btn btn-info"
+            id="monthly"
+            (click)="monthly()"
+          >
+            Monthly
+          </button>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Product ID</label>
+          <input
+            type="text"
+            placeholder="search by product name"
+            class="form-control"
+            name="productID"
+            ngModel
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Customer ID</label>
+          <input
+            type="text"
+            placeholder="search by customer username"
+            class="form-control"
+            name="customerID"
+            ngModel
+          />
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-info" id="search">Search</button>
+          <button
+            type="reset"
+            class="btn btn-link"
+            id="button"
+            (click)="resetTable()"
+          >
+            Reset Table
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
+<div class="name bg-dark" *ngIf="showReport">
+  <table class="table bg-gradient text-light pt-5">
+    <thead class="text-info">
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Products</th>
+        <th scope="col">Total</th>
+        <th scope="col">Status</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of reportShow">
+        <td>{{ report.id }}</td>
+        <td>{{ report.userName }}</td>
+        <td>
+          <ul *ngFor="let product of report.cart">
+            <li>{{ product.quantity }} {{ product.id }}</li>
+          </ul>
+        </td>
+        <td>₹{{ report.total }}</td>
+        <td>{{ report.status }}</td>
+        <td>{{ report.date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row align-items-center bg-dark bg-gradient text-light pt-5" *ngIf="showEdit">
+  <h2 class="text-center text-success text-uppercase">Manage Employees</h2> 
+  <div class="col">
+    <div class="container-md border border-success m-2 p-5">
+      <form #employee="ngForm" (ngSubmit)="addEmployee(employee.value)">
+        <div class="mb-3">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" name="firstName" ngModel />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" name="lastName" ngModel />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" ngModel />
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-success" id="addEmployee">
+            Add Employee
+          </button>
+          <button type="reset" class="btn btn-link" id="reset">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col m-2 ">
+    <div class="name" *ngFor="let employee of employees.data">
+      <div class="row">
+        <div class="container-fluid">
+          ID: <strong>{{ employee.id }}</strong>
+        </div>
+        <br />
+        <div class="container-fluid" *ngIf="!employee.changedPassword">
+          Password: {{ employee.password }}
+        </div>
+        <div class="container-fluid pb-3" *ngIf="employee.changedPassword">
+          Password: <strong>*Employee has changed their password*</strong>
+        </div>
+        <div class="container-fluid col-md-4 pt-3 pb-3 border border-left border-success bg-dark ">
+          <button
+            class="btn btn-outline-success container-fluid"
+            type="button"
+            (click)="deleteEmployee(employee.id)"
+          >
+            Delete Employee
+          </button>
+        </div>
+        <br>
+        
+      </div>
+    </div>
+  </div>
+  <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem">
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+  </div>
+</div>
+
+<div class="row align-items-center bg-dark text-light" *ngIf="showProduct">
+  <div class="col"></div>
+  <div class="col">
+    <div class="container-md bg-gradient p-5 m-3">
+      <form #add="ngForm" (ngSubmit)="addProduct(add.value)">
+        <div class="mb-3">
+          <label class="form-label">Product Name</label>
+          <input type="text" placeholder="Don't write description !" class="form-control" name="id" ngModel />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Price</label>
+          <input type="number" placeholder="In Rupees !" class="form-control" name="price" ngModel />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Quantity</label>
+          <input type="number" placeholder="How you many?" class="form-control" name="quantity" ngModel />
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-warning" id="addProduct">
+            Add Product
+          </button>
+          <button type="reset" class="btn btn-link" id="reset">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col bg-gradient"></div>
+  <div class="name" *ngFor="let item of items">
+    <div class="row bg-gradient">
+      <div class="col-sm-2">
+        <strong>{{ item.id }}</strong>
+      </div>
+      <br />
+      <div class="col-sm-1">₹ {{ item.price }}</div>
+
+      <div class="col-sm-2">
+        <button
+          id="removeBtn"
+          class="btn btn-outline-warning"
+          type="button"
+          (click)="removeProduct(item.id)"
+        >
+          Remove
+        </button>
+      </div>
+      <div class="col-sm-3">
+        <input
+          type="number"
+          id="orderedQuantity"
+          value="{{ item.quantity }}"
+          step="1"
+          min="1"
+          class="col-2"
+          #updatedQty
+        />
+      </div>
+      <div class="col-sm-3">
+        <button
+          class="btn btn-outline-warning"
+          type="button"
+          (click)="updateProduct(item.id, updatedQty.value)"
+        >
+          Update
+        </button>
+      </div>
+      <div class="col-sm-1"></div>
+      <hr />
+    </div>
+  </div>
+</div>
+<div class="bg-dark b-gradient">
+<app-request *ngIf="showRequest"></app-request>
+</div>
+<footer class="p-5 bg-dark text-white text-center position-relative">
+  <div class="container">
+    <p class="lead text-warning">Copyright &copy; Onkar Prakash Patil  <a href="https://github.com/onkarpatil28992"><i class="bi bi-github text-warning"></i></a>
+    </p> 
+  </div>
+</footer>

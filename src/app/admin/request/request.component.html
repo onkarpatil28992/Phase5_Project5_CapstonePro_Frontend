@@ -1,0 +1,18 @@
+<div class="container bg-dark bg-gradient p-5">
+    <h3 class="text-center text-primary pb-3"> Approve Requests</h3>
+    <div class="name bg-gradient text-light p-3" *ngFor= "let item of items">
+      <strong>{{item.request_type.toUpperCase()}} {{item.quantity}} {{item.id}}</strong>
+        <button id="doneBtn" class="btn btn-outline-primary" type="button" (click)="resolve(item.id)">Done</button>
+      <hr>
+    </div>
+    <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem">
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+      <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    </div>
+</div>

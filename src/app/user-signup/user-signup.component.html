@@ -1,0 +1,52 @@
+<nav class="navbar navbar-dark bg-dark border border-success  " >
+  <div class="container-fluid">
+    <a class="navbar-brand text-bold" href="#">
+      <img src="https://img.icons8.com/nolan/2x/fast-cart.png" alt="logo" width="40" height="35">
+      <div><span class="fs-6 text-danger"><h5> Thnik Fresh</h5></span></div>
+    </a>
+  </div>
+</nav>
+<div class="bg-dark text-light ">
+  <div class="row align-items-center ">
+    <div class="col"></div>
+    <div class="col">
+        <div class="container-md bg-gradient p-5 mt-5">
+            <form #userInfo="ngForm" (ngSubmit)="signUpUser(userInfo.value)">
+                <div class="mb-3">
+                  <label class="form-label">First Name</label>
+                  <input type="text" class="form-control" name="firstName" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">DOB</label>
+                    <input type="date" class="form-control" name="dod" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="number" class="form-control" name="phoneNumber" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" name="userAddress" ngModel>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" ngModel>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-info" id="signup">Sign Up</button>
+                  <button type="reset" class="btn btn-warning" id="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>  

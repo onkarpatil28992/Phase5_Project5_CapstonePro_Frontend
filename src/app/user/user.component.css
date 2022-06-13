@@ -1,0 +1,47 @@
+br {
+  content: "\A";
+  display: contents;
+  white-space: pre;
+}
+
+body{
+  background-color: black;
+}
+
+#removeBtn,
+#addBtn {
+  float: right;
+}
+
+
+button:active {
+  /* background-color: #3e8e41;
+  box-shadow: 0 5px #666; */
+  transform: translateY(4px);
+}
+
+button{
+  margin: 2px 2px;
+
+}
+
+.item-container {
+  position: relative;
+  /* left: -10vw; */
+  width: 100vw !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 20px;
+  margin: 20px;
+  
+}
+
+.card:hover {
+  background-color: #ffeeee3f;
+  box-shadow: 0 0 18px rgb(22 22 22 / 29%);
+  transition: box-shadow 0.3s ease-out;
+}

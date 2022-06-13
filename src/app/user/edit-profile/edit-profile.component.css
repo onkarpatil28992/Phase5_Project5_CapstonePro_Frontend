@@ -1,0 +1,47 @@
+h2{
+    margin: auto
+}
+
+h3{
+    text-align: center;
+}
+
+.CurrentUserInfo{
+    width:fit-content;
+    font-size: 20px;
+    /* border:5px solid turquoise; */
+}
+
+.infoType{
+    font-weight: bold;
+}
+
+.editProfileContent{
+    border: 5px solid black;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.updatePasswordContent{
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 15px;
+}
+.passInput{
+    width:100%;
+    /* border: 5px solid red; */
+}
+
+
+
+.formBtn{
+    width: 100%;
+    margin: 5px;
+}

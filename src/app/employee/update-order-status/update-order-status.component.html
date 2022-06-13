@@ -1,0 +1,32 @@
+<div class="container text-light">
+    <section class="bg-dark text-light">
+    <h2 style="text-align: center;"> <span class="text-success"> Update Order Status </span></h2>
+    <h4 style="text-align: center;"><span class="text-danger">All customer order statuses should be updated here!</span></h4>
+        <select [(ngModel)]="selectedOrderType" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Select Order Status to Update</option>
+            <option value="cancelled">Cancelled Orders</option>
+            <option value="pending">Pending Orders</option>
+            <option value="shipped">Shipped Orders</option>
+            <option value="outForDelivery">Out for Delivery Orders</option>
+            <option value="delivered">Delivered Orders</option>
+        </select>
+        
+        </section>
+        <app-cancelled-orders *ngIf="selectedOrderType == 'cancelled'"></app-cancelled-orders>
+        <app-pending-orders *ngIf="selectedOrderType == 'pending'"></app-pending-orders>
+        <app-shipped-orders *ngIf="selectedOrderType == 'shipped'"></app-shipped-orders>
+        <app-out-for-delivery-orders *ngIf="selectedOrderType == 'outForDelivery'"></app-out-for-delivery-orders>
+        <app-delivered-orders *ngIf="selectedOrderType == 'delivered'"></app-delivered-orders>
+        <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem">
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+            <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          </div>
+        
+    
+</div>

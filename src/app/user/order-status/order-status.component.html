@@ -1,0 +1,35 @@
+<div class="container">
+    <h2 style="text-align: center;">Order Status</h2>
+    <div class="unlockUsersArea">
+        <div class="OrderFormArea" *ngFor="let order of orders">
+            <div class="orderDetails ">
+                <span class="productItem">Order Number:</span>{{order['id']}}
+                <br>
+                <span class="productItem">Recipient :</span>{{order['userName']}}
+                <br>
+                <span class="productItem">Date of Purchase:</span>{{order["date"]}}
+                <br>
+                <span class="productItem">Order Status:</span>{{order['status']}}
+                <br>
+                <div class="cart text-uppercase">
+                    <table>
+                        <thead>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of order['cart']">
+                                <td>{{item['id']}}</td>
+                                <td>{{item['quantity']}}</td>
+                                <td>{{item['total']}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <strong id="total">Total: ₹{{order['total']}}</strong>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

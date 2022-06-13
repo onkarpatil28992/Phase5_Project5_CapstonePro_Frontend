@@ -1,0 +1,91 @@
+<nav class="navbar navbar-dark bg-dark border border-success  " >
+  <div class="container-fluid">
+    <a class="navbar-brand text-bold" href="#">
+      <img src="https://img.icons8.com/nolan/2x/fast-cart.png" alt="logo" width="40" height="35">
+      <div><span class="fs-6 text-danger"><h5> Thnik Fresh</h5></span></div>
+    </a><hr>
+     <div class="container-fluid text-light text-center" >
+    <h1 class="gradient-text text-center"> AFFORDABILITY & QUALITY</h1>
+  </div>
+  </div>
+  
+  <div>
+
+  </div>
+ 
+</nav>
+
+
+<div class="bg-dark p-1">
+  <div class="col-md-5 container-fluid pb-5 " id="user">
+    <div class="container-md bg-gradient text-light p-5 " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);border-radius: 10px;
+    ">
+    <b><h5> <p class="text-center ">User Login </p></h5></b> 
+    <hr>
+        <form #userInfo="ngForm" (ngSubmit)="signiInUser(userInfo.value)">
+            <div class="mb-3">
+              <label class="form-label">Username:</label>
+              <input type="text" placeholder="Enter your Username" class="form-control" name="userName" ngModel>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password:</label>
+              <input type="password" placeholder="Enter your Password" class="form-control" name="password" ngModel>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-warning"  >Log In</button>
+              <button type="button" class="btn btn-info" id="signUp" (click)="signUp()">Sign Up</button>
+            </div>
+        </form>
+        <br>
+    </div>
+</div>
+<div class="bg-dark border border-success">
+  <div class="row align-items-center pt-5 pb-5   text-light ">
+    <h3 class="text-center mb-5 text-danger ">FOR MANAGEMENT ONLY</h3>
+    <div class="col-4 container-fluid ">
+        <div class="container-md bg-gradient" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);border-radius: 10px; 
+        ">
+        <br><b> <h5> <p class="text-center">Employee</p> </h5></b>
+         <h5> <p class="text-center">Log In</p> </h5>
+        <hr>
+            <form #employeeInfo="ngForm" (ngSubmit)="signiInEmployee(employeeInfo.value)">
+                <div class="mb-3">
+                  <label class="form-label">EmployeeID:</label>
+                  <input type="text" placeholder="Enter your  ID" class="form-control" name="id" ngModel>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password:</label>
+                  <input type="password" placeholder="Enter your Password" class="form-control" name="password" ngModel>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-warning">Log In</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+    <div class="col-4 container-fluid ">
+      <div class="container-md bg-gradient" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);border-radius: 10px; 
+      ">
+      <br><b> <h5> <p class="text-center">Admin</p> </h5></b>
+      <h5> <p class="text-center">Log In</p> </h5>
+      <hr>
+            <form #adminInfo="ngForm" (ngSubmit)="signiInAdmin(adminInfo.value)">
+                <div class="mb-3">
+                  <label class="form-label">Admin ID:</label>
+                  <input type="text" placeholder="Enter your ID" class="form-control" name="adminID" ngModel>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password:</label>
+                  <input type="password" placeholder="Enter your Password" class="form-control" name="password" ngModel>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-warning">Log In</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+  </div>
+</div>
+</div>

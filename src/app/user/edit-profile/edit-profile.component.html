@@ -1,0 +1,158 @@
+<section class="bg-dark">
+<div class="container bg-dark bg-gradient text-light text-center pt-3" >
+    <h2 class="text-success">Edit Profile</h2><hr>
+
+  
+    <div class="row">
+        <div class="text-info col-sm-12 pb-5 pt-5"><h3> Update Basic Details</h3></div>
+        <div class="col">
+            
+            <div class="CurrentUserInfo" >
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            
+                            <p class="infoType">First Name: </p> <p class="infoAnswer">{{user_firstName}}</p>
+                        </div>
+                        <div class="row">
+                            <p class="infoType">Last Name: </p><p class="infoAnswer">{{user_lastName}}</p>
+                        </div>
+                        <div class="row">
+                            <p class="infoType">E-Mail: </p><p class="infoAnswer">{{user_email}}</p>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <p class="infoType">Address: </p><p class="infoAnswer">{{user_address}}</p>
+                        </div>
+                        <div class="row">
+                            <p class="infoType">Date of Birth: </p><p class="infoAnswer">{{user_dob}}</p>
+                        </div>
+                        <div class="row">
+                            <p class="infoType">Phone Number: </p><p class="infoAnswer">{{user_phoneNumber}}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+                
+            </div>
+        </div>
+
+
+        <div class="col text-dark">
+            <div class="editProfileContent" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);">
+                <form #editProfileRef="ngForm" (ngSubmit)="submitEdits(editProfileRef.value)">
+                    <div class='row'>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="f_fname" name="firstName" ngModel>
+                                        <label for="f_email">First Name</label>
+                                    </div>
+                
+                                </div>
+                                <div class='col'>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="f_lname" name="lastName" ngModel>
+                                        <label for="f_email">Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="f_email" name="email" ngModel>
+                                <label for="f_email">E-mail</label>
+                            </div>
+                                    
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="f_dob" name="dod" ngModel>
+                                        <label for="f_dob">Date of Birth</label>
+                                    </div>
+                                </div>
+                                <div class='col'>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="f_phoneNum" name="phoneNumber" ngModel>
+                                        <label for="f_phoneNum">Phone Number</label>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="f_address" name="userAddress" ngModel>
+                                <label for="f_address">Address</label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="submit" class="btn btn-success formBtn" value="Done">
+                                </div>
+                                <div class="col">
+                                    <input type="reset" class="btn btn-info formBtn" value="Reset">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <h3><span class="text-success">Forgot your password? </span><span class="text-info">Change it here!</span></h3>
+    <br>
+
+    <div class="updatePasswordContent text-dark" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);">
+        <form #updatePasswordRef="ngForm" (ngSubmit)="submitNewPassword(updatePasswordRef.value)">
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="f_currPassword" name="f_currPassword" ngModel>
+                        <label for="f_currPassword">Current Password</label>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="f_newPassword1" name="f_newPassword1" ngModel>
+                        <label for="f_newPassword1">New Password</label>
+                    </div>                   
+                    <p class="invalidPass">{{password1Res}}</p>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="f_newPassword2" name="f_newPassword2" ngModel>
+                        <label for="f_newPassword2">Confirm New Password</label>
+                    </div>
+                    <p class="invalidPass">{{password2Res}}</p>
+                </div>
+    
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <input type="submit" class="btn btn-success formBtn" value="Done">
+                </div>
+                <div class="col">
+                    <input type="reset" class="btn btn-info formBtn" value="Reset">
+                </div>
+            </div>
+    
+        </form>
+    
+    </div>
+
+        
+</div>
+</section>

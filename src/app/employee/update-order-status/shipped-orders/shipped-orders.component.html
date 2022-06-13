@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="pendingOrderArea">
+        
+        <div class="OrderFormArea" *ngFor="let order of orders; index as idx;">
+            <form #orderRef="ngForm" (ngSubmit)="submitOrderStatusUpdate(orderRef.value)">
+                <div class="orderDetails">
+                    <span class="productItem">Order Number:</span>{{order['id']}}
+                    <br>
+                    <span class="productItem">Recipient:</span>{{order['userName']}}
+                    <br>
+                    <span class="productItem">Date of Purchase:</span>{{order["date"]}}
+                    <br>
+                    <span class="productItem">Order Status:</span>{{order['status']}}
+                    <br>
+                    <input class="form-check-input" type="radio" value="Pending" [name]="order['id']"  [id]="'order1_'+idx" ngModel> 
+                    <label [for]="'order1_'+idx">Pending</label> <br>
+                    <input class="form-check-input" type="radio" value="Shipped" [name]="order['id']"  [id]="'order2_'+idx" ngModel> 
+                    <label [for]="'order2_'+idx">Shipped</label> <br>
+                    <input class="form-check-input" type="radio" value="Delivered" [name]="order['id']"  [id]="'order3_'+idx" ngModel> 
+                    <label [for]="'order3_'+idx">Delivered</label> <br>
+
+                    <input class="form-check-input" type="radio" value="Cancelled" [name]="order['id']"  [id]="'order4_'+idx" ngModel> 
+                    <label [for]="'order1_'+idx">Cancelled</label> <br>
+                    <input class="form-check-input" type="radio" value="outForDelivery" [name]="order['id']"  [id]="'order5_'+idx" ngModel> 
+                    <label [for]="'order1_'+idx">Out for Delivery</label> <br>
+
+                    <div class="cart">
+                        <table>
+                            <thead>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of order['cart']">
+                                    <td>{{item['id']}}</td>
+                                    <td>{{item['quantity']}}</td>
+                                    <td>{{item['total']}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div style="margin: auto;width: fit-content;">
+                    <input type="submit" class="btn btn-success orderStatusBtn" value="Submit Order Status Update">
+                    <input type="reset" class="btn btn-success orderStatusBtn" value="Reset">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

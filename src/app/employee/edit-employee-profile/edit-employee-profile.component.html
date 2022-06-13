@@ -1,0 +1,58 @@
+<div id="wrap" class="bg-gradient p-3 pt-5">
+    
+<h3 class="text-danger">Change Password</h3><br>
+<div class="updatePasswordContent bg-gradient" >
+    <form #updatePasswordRef="ngForm" (ngSubmit)="submitNewPassword(updatePasswordRef.value)">
+        <div class="row">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="f_currPassword" name="f_currPassword" ngModel>
+                    <label for="f_currPassword">Current Password</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="f_newPassword1" name="f_newPassword1" ngModel>
+                    <label for="f_newPassword1">New Password</label>
+                </div>                   
+                <p class="invalidPass">{{password1Res}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="f_newPassword2" name="f_newPassword2" ngModel>
+                    <label for="f_newPassword2">Confirm New Password</label>
+                </div>
+                <p class="invalidPass">{{password2Res}}</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type="submit" class="btn btn-danger formBtn" value="Done">
+            </div>
+            <div class="col">
+                <input type="reset" class="btn btn-secondary formBtn" value="Reset">
+            </div>
+        </div>
+
+    </form>
+
+</div>
+</div>
+<div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem">
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+    <div class="bg-dark pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+  </div>

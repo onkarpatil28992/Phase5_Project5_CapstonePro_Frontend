@@ -1,0 +1,16 @@
+<div class="container">
+    <h2 style="text-align: center;">Unlock Users</h2>
+    <div class="unlockUsersArea">
+        <form>
+            <div class="OrderFormArea" *ngFor="let ticket of tickets">
+                    <div class="orderDetails">
+                        Username: {{ticket.id}} <br>
+                        Description: {{ticket.description}}<br>
+                        Account Status: Locked<br>
+
+                        <input type="button" class="btn btn-primary orderStatusBtn" value="Unlock" (click)="unLockUser(ticket.id)">
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>

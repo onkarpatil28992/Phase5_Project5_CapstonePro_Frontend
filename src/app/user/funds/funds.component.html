@@ -1,0 +1,39 @@
+<section class="bg-dark">
+<div class="container bg-dark bg-gradient pt-5">
+    <br>
+    <h2 class="text-center">Account Balance</h2>
+    <br><br>
+    <div class="fundTableArea ">
+        <div class="p-5"></div>
+        <table class="table fundTable pb-5 text-success">
+            <thead>
+                
+                <th>Account Number</th>
+                <th>Amount</th>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><span class="text-light">{{accountNumber}}</span></td>
+                    <td><span class="text-light">₹{{curr_funds}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<br>
+    
+    <div class="addFundsArea pt-5">
+        <h3>Need to add funds? Add them here!</h3><br>
+        <div class="input-group mb-3 amntInput pt-5">
+            <span class="input-group-text">₹</span>
+            
+            <input #fundsAmnt id="fundsInput" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <span class="input-group-text">.00</span>
+        </div>
+        <div class="p-5">
+        <input type="button" class="btn btn-success fundsBtn" value="Request Funds" (click)="addFunds(fundsAmnt.value)">
+    </div>
+    </div>
+
+</div>
+</section>

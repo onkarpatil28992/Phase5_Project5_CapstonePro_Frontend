@@ -1,0 +1,61 @@
+<div class="container bg-dark">
+
+    
+    <h2 class="text-light" style="text-align: center; padding: 6px; font-family: 'Archivo', sans-serif;"><span class="text-info">Request/Manage</span> <span class="text-warning"> Existing Products</span>  </h2>
+
+    <div class="SendRequestArea bg-dark p-2 mt-5 text-light bg-gradient">
+        <table style="width:100%;">
+            <thead>
+
+            </thead>
+            <tbody>
+                <div *ngFor="let product of products">
+                    <form #productQuantityRef="ngForm" class="text-light">
+                        <tr>
+                            <td style="width:17%;"><strong>{{product.id}}</strong></td>
+                            <td style="width:17%;">{{product.quantity}}</td>
+                            <td style="width:17%;">₹{{product.price}}</td>
+                            <td style="width:17%;">
+                                <div class="form-floating itemInput">
+                                    <input type="number" class="form-control" name="quantity"  id="floatingInput" ngModel>
+                                    <label for="floatingInput" class="text-warning"><h5>Quantity</h5> </label>
+                                </div> 
+                            </td>
+                            <td style="width:17%;">
+                                <div class="">
+                                    <button class="btn btn-warning sr_btn" type="button" (click)="addProductRequest(productQuantityRef.value.quantity,product.id)">Add</button>
+                                    <button class="btn btn-info sr_btn" type="button" (click)="deleteProductRequest(productQuantityRef.value.quantity,product.id)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </form>
+                </div>
+            </tbody>
+        </table>   
+    </div> <hr class="bg-light mt-5">
+    <h2 class="text-light pt-5" style="text-align: center; padding: 6px; font-family: 'Archivo', sans-serif;"> <span class="text-warning">Request</span><span class="text-info"> New Product for Inventory</span></h2>
+
+    <div class="row align-items-center text-light pt-5 ">
+        <div class="col"></div>
+        <div class="col border border-warning bg-gradient">
+          <div class="container-md p-4">
+            <form #request="ngForm" (ngSubmit)="addProductRequest(request.value.quantity, request.value.id)">
+                <div class="mb-3">
+                  <label class="form-label ">Product Name</label>
+                  <input type="text" class="form-control" name="id" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" ngModel>
+                </div>
+                <div class="d-grid gap-2 mt-5">
+                  <button type="submit" class="btn btn-warning" id="addProduct">Request Product</button>
+                  <button type="reset" class="btn btn-link" id="reset">Reset</button>
+                </div>
+    
+            </form>
+        </div>
+        </div>
+        <div class="col"> </div>
+    </div>
+</div>

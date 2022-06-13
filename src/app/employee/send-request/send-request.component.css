@@ -1,0 +1,41 @@
+.SendRequestArea{
+    border: 4px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+.itemInputBox{
+    width: 100px;
+    
+}
+
+.sendRequestBtn{
+    width: 200px;
+    margin: 10px;
+    margin:auto;
+}
+
+#floatingInput{
+    width: 50%;
+}
+
+tr{
+    border-bottom: 1px solid #ccc;
+}
+
+tr:last-child{
+    /* border-bottom: 0; */
+}
+
+td{
+    margin: auto;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.sr_btn{
+    margin: 2px;
+    width: 40%;
+}

@@ -1,0 +1,138 @@
+<section class="bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark border border-success">
+    <div class="container-fluid">
+      
+      <ul class="navbar-brand text-bold " (click)="homeBtn()" href="#">
+        <img src="https://img.icons8.com/nolan/2x/fast-cart.png" alt="logo" width="40" height="35">
+        <div><span class="fs-6 text-warning "><h5> THINK FRESH</h5></span></div>
+    </ul>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <button class="btn btn-outline-warning" type="button" (click)="homeBtn()">Home</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-warning" type="button" (click)="showFundBtn()">Balance</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-warning" type="button" (click)="showEditBtn()">Edit Profile</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-warning" type="button" (click)="showCartBtn()">Cart</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-warning" type="button" (click)="showOrderBtn()">Order Status</button>
+          </li>
+        </ul>
+        <a class="navbar-brand text-light"> Welcome <span class="text-uppercase">{{currentUser}}</span></a>
+        
+      </div>
+      <button class="btn btn-warning" type="button" (click)="logout_user()">Log Out</button>
+    </div>
+</nav>
+<section class="bg-dark">
+<div class="container bg-dark bg-gradient text-light" *ngIf="showCart">
+  
+    <h3 class="text-danger text-center m-5 pt-5">CART🛒</h3> <hr>
+    <div class="row">
+      <div class="col-sm-5"><strong>Item</strong></div>
+      <div class="col-sm-6"><strong>Quantity</strong></div>
+      <div class="col-sm-1"><strong>Total(₹)</strong></div>
+      <hr>
+    </div>
+    
+      
+    <div class="name bg-dark bg-gradient text-light" *ngFor= "let item of localCart">
+      <div class="row">
+        <div class="col-sm-2 text-uppercase"><strong>{{item[0]}}</strong></div>
+        <br/>
+        
+
+        <div class="col-sm-2">
+          <button id="removeBtn" class="btn btn-outline-danger" type="button" (click)="removeFromCart(item)">Remove</button>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3"> 
+          <input type="number" id="orderedQuantity" value={{item[1][0]}} step="1" min="1" class="col-2"  #updatedQty>
+        </div>
+        <div class="col-sm-3">
+          <button class="btn btn-outline-danger" type="button" (click)="updateFromCart(item[0],updatedQty.value)">Update</button>
+        </div>  
+        
+        
+        <div class="col-sm-1">
+          <p>₹{{(item[1][1]*item[1][0])}}</p>
+        </div>
+      <hr>
+      </div>
+     
+    </div>
+    <div class="row bg-dark bg-gradient text-light">
+
+        <div class="col-sm-5"><strong>Total</strong></div>
+        <div class="col-sm-6"><strong>{{totalQty}}</strong></div>
+        <div class="col-sm-1"><strong>₹ {{cartTotal}}</strong></div>
+        <hr>
+      </div>
+      <div class="col-md-12 text-center">
+        <button class="btn btn-danger active mb-8 m-5" type="button" (click)="buyOrder()">Buy Now</button>
+        <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem">
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+          <div class=" pb-5 col-lg-100 m-5" width="100rem" height="100rem"></div>
+        </div>
+      </div>
+      
+      
+</div>
+</section>
+
+
+<app-edit-profile *ngIf="showEdit"></app-edit-profile>
+<div class="container bg-dark bg-gradient text-light" *ngIf="!showEdit && !showCart">
+<app-funds *ngIf="showFunds"></app-funds>
+
+
+<div class=" bg-dark bg-gradient text-dark" *ngIf="showHome">
+  <h3 class="text-info text-center pt-5">ITEMS</h3>
+  <div class="item-container">
+    <div class="name" *ngFor= "let item of items">
+
+      <div class="card bg-gradient" style="width: 18rem;" id="card">
+        
+        <img class="card-img-top" src="https://img.icons8.com/external-bearicons-gradient-bearicons/344/external-add-to-cart-essential-collection-bearicons-gradient-bearicons.png"  alt="Card1 image cap" width="40" height="135"><hr>
+        <div class="card-body">
+          <h4 class="card-title text-uppercase">{{item.id}}</h4>
+          <p class="card-text">Price:₹{{item.price}}</p>
+          <div class="content-center col-sm-8 p-2">
+            <button id="addBtn" class="btn btn-info btn-lg " type="button" (click)="addToCart(item.id,item.price)">Add 🛒</button>
+          </div>
+          
+          
+        </div>
+        
+      </div>
+      
+  </div>
+    
+     
+      
+    </div>
+    
+
+</div>
+
+  
+<app-order-status *ngIf="showOrder"></app-order-status>
+<footer class="p-5 bg-dark text-white text-center position-relative">
+  <div class="container">
+    <p class="lead text-success">Copyright &copy; Onkar Prakash Patil  <a href="https://github.com/onkarpatil28992"><i class="bi bi-github text-success"></i></a>
+    </p> 
+  </div>
+</footer>

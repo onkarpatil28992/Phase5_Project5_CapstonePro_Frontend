@@ -1,0 +1,53 @@
+.unlockUsersArea{
+    margin: auto;
+}
+
+
+.orderDetails{
+    border: 5px solid black;
+    border-radius: 10px;
+    width:fit-content;
+    padding: 30px;
+    margin: 30px auto;
+
+    
+}
+
+.lockedUserDetails{
+    border: 5px solid black;
+    border-radius: 10px;
+    width:fit-content;
+    padding: 30px;
+    margin: 30px auto;
+    display: inline-block;
+}
+
+.orderStatusBtn{
+    margin: 10px;
+}
+
+.productItem{
+    font-weight: bold;
+    margin: 5px;
+}
+
+.cart{
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+th{
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+td{
+    text-align: center;
+    margin: auto;
+}
+
+#total {
+    float: left;
+}
